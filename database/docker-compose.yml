@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_prueba_tecnica
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: pruebatecnica_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: pruebatecnica_postgres_data
