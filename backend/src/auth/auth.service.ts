@@ -4,6 +4,7 @@ import { IUserService } from "src/user/interfaces/user-service.interface";
 import { CreateUserDto } from "src/user/dtos/create-user.dto";
 import * as bcrypt from 'bcrypt';
 import { Usuarios } from "@prisma/client";
+import { loginDto } from "./dtos/login.dto";
 
 //* LSP (Sustitución de Liskov): Podrías reemplazar userService por cualquier otra clase que cumpla la misma interfaz.
 
@@ -35,8 +36,8 @@ export class AuthService {
         return user;                
     }
 
-    async login(email:string, password: string) {
-        const user = await this.validateUser(email, password);
+    async login(data : loginDto) {
+        const user = await this.validateUser(data.email, data.password);
 
         // Generar JWT
         const payload = { sub: user.id, email: user.email };

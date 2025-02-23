@@ -2,6 +2,7 @@ import { Controller, Post, Body } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateUserDto } from "src/user/dtos/create-user.dto";
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from "@nestjs/swagger";
+import { loginDto } from "./dtos/login.dto";
 
 //@ApiBearerAuth() para indicar que requiere autenticación JWT
 @ApiTags('auth')
@@ -24,8 +25,8 @@ export class AuthController{
     @Post('login')
     @ApiOperation({ summary: 'Login a user' })
     @ApiResponse({ status: 200, description: 'User logged in successfully' })
-    async login (@Body() body: {email: string, password: string}) {
-        return this.authService.login(body.email, body.password);
+    async login (@Body() data: loginDto) {
+        return this.authService.login(data);
     }
 }
 
