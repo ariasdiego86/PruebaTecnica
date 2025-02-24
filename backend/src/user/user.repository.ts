@@ -19,4 +19,16 @@ export class UserRepository implements IUserRepository {
         return this.prisma.usuarios.findUnique({ where: { email } });
     }
     // Aquí puedes añadir más métodos que necesites
+
+    async findByResetToken(token: string): Promise<Usuarios | null> {
+        return this.prisma.usuarios.findFirst({ where: { resetPasswordToken: token } });
+    }
+
+    async updateUser(userId: number, data: Partial<Usuarios>): Promise<Usuarios> {
+        return this.prisma.usuarios.update({
+            where: { id: userId },
+            data,
+        });
+    }   
+      
 }

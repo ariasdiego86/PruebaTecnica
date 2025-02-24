@@ -1,7 +1,7 @@
 import AuthForm from "@/components/AuthForm";
 
 const Login = () => {
-  return <AuthForm />;
+  return <AuthForm isRegister = {false}/>;
 };
 
 export default Login;

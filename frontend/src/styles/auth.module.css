@@ -1,6 +1,7 @@
 .container {
     display: flex;
     height: 100vh;
+    position: relative;
   }
   
   .leftPanel {
@@ -10,14 +11,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 3rem;
+    color: black;
+    position: relative;
   }
+
+  /* Ajusta la posición del título */
+.titleContainer {
+  position: absolute;
+  top: 10%; /* Mueve el texto más arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  width: 100%; /* Igual al ancho del formulario */
+  max-width: 400px;
+}
   
   .rightPanel {
     width: 50%;
-    background: #0033cc;
+    background: #003ECB;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     color: white;
     text-align: center;
@@ -27,28 +42,33 @@
   
   .form {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
   }
   
   .input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    background: white;
+    color: black;
+    font-size: 16px;
   }
   
   .button {
-    background: #0033cc;
+    background: #0944CC;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     margin-top: 10px;
+    width: 100%;
+    font-size: 16px;
   }
   
   .button:hover {
@@ -61,6 +81,18 @@
     font-size: 0.9rem;
     margin-top: 10px;
   }
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
   
   @media (max-width: 768px) {
     .container {
@@ -70,5 +102,224 @@
       width: 100%;
       height: 50vh;
     }
+
+    .titleContainer {
+      top: 5%;
+    }
   }
+
+.passwordContainer {
+    position: relative;
+    width: 100%;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Estilos para el enlace de registro */
+.signupLink {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.signupLink a {
+  color: #003ECB;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signupLink a:hover {
+  text-decoration: underline;
+}
+
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.forgotPassword {
+  color: #0944CC;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.rememberMeContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el checkbox y el texto */
+  margin-top: 10px; /* Espacio respecto al input de contraseña */
+  margin-bottom: 10px; /* Espacio antes del botón */
+  width: 100%;
+  font-size: 14px;
+  color: #6c757d; /* Gris elegante */
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.rememberMeLabel {
+  font-size: 14px;
+  color: #6c757d;
+  cursor: pointer;
+  user-select: none;
+}
+/*checkbox terms*/
+.termsContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre checkbox y texto */
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d; /* Gris elegante */
+}
+
+.checkboxCustom {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.checkboxCustom:checked::before {
+  content: "✔";
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkboxCustom:checked {
+  background-color: #0033cc;
+  border-color: #0033cc;
+}
+
+.termsLabel {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/*checkbox terms end*/
+
+.termsLink {
+  color: #0033cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.termsLink:hover {
+  text-decoration: underline;
+}
+
+
+.blueText {
+  color: #003ECB; /* Azul */
+  font-weight: bold;
+}
+
+.yellowUnderline {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+}
+
+.yellowUnderline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Controla qué tan abajo está la línea */
+  width: 100%;
+  height: 4px; /* Grosor de la línea */
+  background-color: yellow;
+}
+
+.breakText {
+  display: block;
+}
+
+.rightPanel h1 {
+  margin-bottom: 30px; /* Aumenta la separación entre h1 y h6 */
+}
+
+.rightPanel h6 {
+  font-size: 14px; /* Tamaño opcional para que no se vea muy grande */
+  line-height: 1.5; /* Espaciado entre líneas si es necesario */
+}
+
+.loginLink {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.loginLink a {
+  color: #0033cc; /* Azul */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.loginLink a:hover {
+  text-decoration: underline;
+}
+
+.subtitle {
+  color: #7C7C7C; /* Gris legible */
+  font-size: 14px; /* Tamaño adecuado */
+  font-weight: 400; /* Peso delgado */
+  text-align: left; /* Alinear a la izquierda */
+  max-width: 400px; /* No sobrepase el ancho del formulario */
+  margin-top: 10px; /* Espaciado respecto al título */
+}
+
+.panelImage {
+  width: 60%; /* Ajusta el tamaño de la imagen */
+  max-width: 300px; /* Evita que se haga muy grande */
+  margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.successMessage {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
   

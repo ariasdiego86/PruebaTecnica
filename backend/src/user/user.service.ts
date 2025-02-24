@@ -36,4 +36,12 @@ export class UserService implements IUserService {
     async findByEmail(email: string): Promise<Usuarios | null> {
         return this.userRepository.findByEmail(email);
     }
+
+    async findByResetToken(token: string): Promise<Usuarios | null> {
+        return this.userRepository.findByResetToken(token);
+    }
+
+    async updateUser(userId: number, data: Partial<Usuarios>): Promise<Usuarios> {
+        return this.userRepository.updateUser(userId, data);
+    }
 }

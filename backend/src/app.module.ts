@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { MailModule } from './mailer/mailer.module';
 
 
 //Si se usa @Global() en PrismaModule, no es estrictamente necesario importarlo en cada módulo, pero es buena práctica importarlo en AppModule para dejarlo claro.
@@ -14,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
     PrismaModule,
     UserModule,
     AuthModule,    
+    MailModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -18,3 +18,15 @@ export const register = async (name: string, email: string, password: string) =>
     return response.data;
     
 };
+
+// Nueva función para solicitar el reset de contraseña
+export const requestPasswordReset = async (email: string) => {
+    const response = await api.post(`${API_URL}/auth/request-password-reset`, { email });
+    return response.data;
+};
+
+// Nueva función para cambiar la contraseña con el token
+export const resetPassword = async (token: string, newPassword: string) => {
+    const response = await api.post(`${API_URL}/auth/reset-password`, { token, newPassword });
+    return response.data;
+};

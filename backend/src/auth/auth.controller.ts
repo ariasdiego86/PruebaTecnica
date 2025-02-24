@@ -3,6 +3,7 @@ import { AuthService } from "./auth.service";
 import { CreateUserDto } from "src/user/dtos/create-user.dto";
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from "@nestjs/swagger";
 import { loginDto } from "./dtos/login.dto";
+import { RequestPasswordResetDto, ResetPasswordDto } from "./dtos/password-reset.dto";
 
 //@ApiBearerAuth() para indicar que requiere autenticación JWT
 @ApiTags('auth')
@@ -28,5 +29,20 @@ export class AuthController{
     async login (@Body() data: loginDto) {
         return this.authService.login(data);
     }
+
+    @Post("request-password-reset")
+    @ApiOperation({ summary: "Request password reset" })
+    @ApiResponse({ status: 200, description: "Password reset email sent" })
+    async requestPasswordReset(@Body() data: RequestPasswordResetDto) {
+        return this.authService.requestPasswordReset(data);
+    }
+
+    @Post("reset-password")
+    @ApiOperation({ summary: "Reset password" })
+    @ApiResponse({ status: 200, description: "Password reset successful" })
+    async resetPassword(@Body() data: ResetPasswordDto) {
+        return this.authService.resetPassword(data);
+    }
+
 }
 

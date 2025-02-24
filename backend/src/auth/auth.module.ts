@@ -6,6 +6,7 @@ import { AuthController } from "./auth.controller";
 import { UserModule } from "src/user/user.module";
 import { JwtStrategy } from "./strategies/jwt.strategy";
 import { ConfigModule, ConfigService } from "@nestjs/config";
+import { MailModule } from "src/mailer/mailer.module";
 
 //* SRP: AuthModule se encarga de todo lo relacionado con la autenticación.
 
@@ -24,6 +25,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
         }),
         inject: [ConfigService],
       }),
+      MailModule,
     ],
     providers: [AuthService, JwtStrategy],
     controllers: [AuthController],
