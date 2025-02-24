@@ -17,8 +17,10 @@ model Usuarios {
   id        Int     @id @default(autoincrement())
   name      String
   email     String  @unique
-  password  String  // Aquí almacenaremos la contraseña encriptada
+  password  String  // password encripted
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  resetPasswordToken String?  // Token para recuperar la password
+  resetPasswordExpires DateTime? // Expiración del token
 }
 
